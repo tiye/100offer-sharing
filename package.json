@@ -1,0 +1,16 @@
+{
+  "name": "100offer-sharing",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cirru-script": "^0.4.26",
+    "gulp": "^3.9.0",
+    "rsyncwrapper": "^1.0.0"
+  }
+}
