@@ -5,13 +5,13 @@
 
 # 关于我
 
-题叶
+题叶, Chen Yong
 
-* tiye.me
-* react-china.org
-* clojure-china.org
-* segmentfault.com/blog/jiyinyiyong
-* zhuanlan.zhihu.com/cold-code
+* <http://tiye.me>
+* <http://react-china.org>
+* <http://clojure-china.org>
+* <http://segmentfault.com/blog/jiyinyiyong>
+* <http://zhuanlan.zhihu.com/cold-code>
 
 ---
 
@@ -19,16 +19,20 @@
 
 * jianliao.com
 * 轻量、好用的团队沟通工具
-* 前端基于 React.js
+* 前端一年前整个切换到 React.js
 
 ---
 
 # 提纲
 
+如果你在考虑用 React.js 写单页面应用:
+
 * React 在简聊的开发思路
 * React 不适合的场景
 * 开发环境的优势
 * 代码编译和服务端渲染
+
+*不涉及 React Native*
 
 ---
 
@@ -91,15 +95,17 @@
 
 ---
 
-# State 通常是写死的
+# 表单处理的问题
+
+State 通常是写死的
 
     React.createClass
-      getIntitialState: ->
+      getInitialState: ->
         a: 1
         b: 2
 
       render: ->
-        div()
+        div null, @state.a, @state.b
 
 在 State 上写, 不方便. 不用 State, 脱离了方案
 
@@ -119,7 +125,7 @@
 
 ---
 
-![](http://78recl.com1.z0.glb.clouddn.com/100offer-share-data-path.png)
+![](http://78recl.com1.z0.glb.clouddn.com/100offer-share-data-path-2.png)
 
 ---
 
@@ -191,6 +197,10 @@ hot-loader 作者已经不维护了.
 
 ---
 
+![](http://78recl.com1.z0.glb.clouddn.com/100offer-share-webpack-build.png)
+
+---
+
 # 简聊 Demo
 
 * 聚合的页面, 异步加载
@@ -222,4 +232,23 @@ hot-loader 作者已经不维护了.
 
 ---
 
+# 总结, 考虑 React
+
+* 简化了开发环节, 需要转换一些思路和重点
+* 注意一些并不擅长的场景(合适的话考虑其他的方案)
+* 对开发过程可以带来效率的提升
+* Webpack 处理单页面的编译已经相当成熟(服务端基本可用)
+
+另外, 团队因素... React 大量的新概念, 理解上的差异.
+
+---
+
+# 其他
+
+* 招聘 Node.js 工程师
+
+---
+
 # Thanks
+
+简聊前端交流 <https://jianliao.com/page/invite/f26cf1404g>
