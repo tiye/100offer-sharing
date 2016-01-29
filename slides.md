@@ -17,9 +17,14 @@
 
 # 关于简聊
 
+* 简聊 by Teambition
 * jianliao.com
 * 轻量、好用的团队沟通工具
 * 前端一年前整个切换到 React.js
+
+---
+
+Logo
 
 ---
 
@@ -43,8 +48,10 @@
 # 简单地说
 
 * 全局的 Store 保存数据
-* 每次 Store 有更新, 刷新整个 View
-* 用户操作对 Store 进行修改
+* 每当 Store 有更新, View 自动更新
+* 用户操作到 Store, 再让 View 自动更新
+
+Redux 的思路
 
 ---
 
@@ -60,7 +67,7 @@
 
 * 数据界面分离
 * 单向数据流
-* 分析数据依赖, 合并数据请求(部分地...)
+* 对于服务端的数据, 分析界面数据依赖, 尝试合并请求
 
 ---
 
@@ -78,6 +85,8 @@
 * 使用 Immutable Data Structure 减少冗余计算
 * 避免 Forced Layout
 * 减小 Virtual DOM 节点数量
+
+简聊切换话题和团队已经比较流畅, 另外还有一些优化未完成
 
 ---
 
@@ -107,7 +116,8 @@ State 通常是写死的
       render: ->
         div null, @state.a, @state.b
 
-在 State 上写, 不方便. 不用 State, 脱离了方案
+复杂的表单在 State 上一一声明, 加上对应的操作 State 方法, 代码会繁琐.
+使用其他的方案可能偏离 React 一贯的思维方式.
 
 ---
 
@@ -131,9 +141,12 @@ State 通常是写死的
 
 # 动画的难点
 
-声明式语法, 和过程式的动画. 其实有着数据不一致的问题.
+* 声明式语法, 和过程式的动画. 其实有着数据不一致的问题.
+* 重复计算 Virtual DOM, 性能
+* `transitionGroup` 只能实现简单的动画
+* 管理动画过程的私有状态
 
-重复计算 Virtual DOM, 性能.
+社区的方案 react-motion
 
 ---
 
@@ -195,6 +208,8 @@ hot-loader 作者已经不维护了.
 * 自动生成 revision, `'js/vendor.[chunkhash:8].js'`
 * 惰性加载代码
 
+文档很长, 但仍然不够详细.
+
 ---
 
 ![](http://78recl.com1.z0.glb.clouddn.com/100offer-share-webpack-build.png)
@@ -224,11 +239,27 @@ hot-loader 作者已经不维护了.
 
 ---
 
+![](http://78recl.com1.z0.glb.clouddn.com/100offer-share-router.png)
+
+---
+
+![](http://78recl.com1.z0.glb.clouddn.com/100offer-share-server-render.png)
+
+---
+
 # 简聊 Demo
 
 * 服务端渲染, 禁用 JavaScript
 
 账号页面功能单一, 初始化的数据结构简单, 直接在前后端复用.
+
+---
+
+# 优化首屏渲染
+
+* 让用户觉得 "关闭/打开页面" == "断网/自动联网同步数据"
+* Store 存储在 `localStorage`
+* 应用打开, 在网络请求发出之前, 优先加载 Store 进行渲染
 
 ---
 
@@ -245,10 +276,18 @@ hot-loader 作者已经不维护了.
 
 # 其他
 
+公司
+
 * 招聘 Node.js 工程师
+
+个人项目
+
+* <http://cumulo.org/>
 
 ---
 
-# Thanks
+# Questions
 
-简聊前端交流 <https://jianliao.com/page/invite/f26cf1404g>
+* 简聊前端交流 <https://jianliao.com/page/invite/f26cf1404g>
+* <http://react-china.org>
+* 微信 @jiyinyiyong 微博 @题叶
